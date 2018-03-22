@@ -10,7 +10,7 @@ page = urllib2.urlopen(pens_page)
 soup = BeautifulSoup(page, 'html.parser')
 
 def findPrevGame():
-    #Get tbody tags to find date of games
+    #Get tbody tags to find previous game scores and outcome
     bodyTags = soup.find('tbody')
     dateTag = bodyTags.findAll('td', attrs={'data-stat': 'date_game'})
     outcomeTag = bodyTags.findAll('td', attrs={'data-stat': 'game_outcome'})

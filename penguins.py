@@ -15,8 +15,6 @@ def findNextGame():
     dateTag = bodyTags.findAll('td', attrs={'data-stat': 'date_game'})
     oppTag = bodyTags.findAll('td', attrs={'data-stat': 'opp_name'})
     outcomeTag = bodyTags.findAll('td', attrs={'data-stat': 'game_outcome'})
-    goalsForTag = bodyTags.findAll('td', attrs={'data-stat': 'goals'})
-    goalsAgainstTag = bodyTags.findAll('td', attrs={'data-stat': 'opp_goals'})
 
     for idx, tag in enumerate(dateTag):
         tempGameDate = datetime.strptime(tag.text, '%Y-%m-%d')

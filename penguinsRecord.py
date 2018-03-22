@@ -10,7 +10,7 @@ page = urllib2.urlopen(pens_page)
 soup = BeautifulSoup(page, 'html.parser')
 
 def findRecord():
-    #Get tbody tags to find date of games
+    #Get tbody tags to find current recrod of pens
     bodyTags = soup.find('tbody')
     dateTag = bodyTags.findAll('td', attrs={'data-stat': 'date_game'})
     winsTag = bodyTags.findAll('td', attrs={'data-stat': 'wins'})
