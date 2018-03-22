@@ -9,14 +9,12 @@ pens_page = 'https://www.hockey-reference.com/teams/PIT/2018_games.html'
 page = urllib2.urlopen(pens_page)
 soup = BeautifulSoup(page, 'html.parser')
 
-def findNextGame():
+def findRecord():
     #Get tbody tags to find date of games
     bodyTags = soup.find('tbody')
     dateTag = bodyTags.findAll('td', attrs={'data-stat': 'date_game'})
-    oppTag = bodyTags.findAll('td', attrs={'data-stat': 'opp_name'})
-    outcomeTag = bodyTags.findAll('td', attrs={'data-stat': 'game_outcome'})
-    goalsForTag = bodyTags.findAll('td', attrs={'data-stat': 'goals'})
-    goalsAgainstTag = bodyTags.findAll('td', attrs={'data-stat': 'opp_goals'})
+    winsTag = bodyTags.findAll('td', attrs={'data-stat': 'wins'})
+    lossesTag = bodyTags.findAll('td', attrs={'data-stat': 'losses'})
 
     for idx, tag in enumerate(dateTag):
         tempGameDate = datetime.strptime(tag.text, '%Y-%m-%d')
@@ -26,7 +24,7 @@ def findNextGame():
             pass
         else:
             printGameDate = tempGameDate.strftime('%m/%d/%Y')
-            print "Next game: ", str(printGameDate), "vs", str(oppTag[idx].text)
+            print "Record: ", winsTag[idx-1].text, "-", lossesTag[idx-1].text
             break
 
-findNextGame()
+findRecord()
