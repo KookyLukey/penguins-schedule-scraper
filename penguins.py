@@ -2,7 +2,6 @@ import urllib2
 from bs4 import BeautifulSoup
 import re
 from datetime import datetime
-#record = record_box.text.strip()
 
 # specify the url
 pens_page = 'https://www.hockey-reference.com/teams/PIT/2018_games.html'
@@ -14,7 +13,6 @@ def findNextGame():
     bodyTags = soup.find('tbody')
     dateTag = bodyTags.findAll('td', attrs={'data-stat': 'date_game'})
     oppTag = bodyTags.findAll('td', attrs={'data-stat': 'opp_name'})
-    outcomeTag = bodyTags.findAll('td', attrs={'data-stat': 'game_outcome'})
 
     for idx, tag in enumerate(dateTag):
         tempGameDate = datetime.strptime(tag.text, '%Y-%m-%d')

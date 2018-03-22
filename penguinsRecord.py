@@ -2,7 +2,6 @@ import urllib2
 from bs4 import BeautifulSoup
 import re
 from datetime import datetime
-#record = record_box.text.strip()
 
 # specify the url
 pens_page = 'https://www.hockey-reference.com/teams/PIT/2018_games.html'
