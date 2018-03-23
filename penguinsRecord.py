@@ -19,7 +19,7 @@ def findRecord():
         tempGameDate = datetime.strptime(tag.text, '%Y-%m-%d')
         today = datetime.today()
 
-        if tempGameDate < today:
+        if datetime.date(tempGameDate) < datetime.date(today):
             pass
         else:
             printGameDate = tempGameDate.strftime('%m/%d/%Y')
